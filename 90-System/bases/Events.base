@@ -1,0 +1,18 @@
+filters:
+  and:
+    - file.folder.contains("10-Journal/10-10-Events")
+views:
+  - type: table
+    name: Table
+    sort:
+      - property: file.name
+        direction: DESC
+  - type: table
+    name: Meetings-with-this-file
+    filters:
+      and:
+        - file.hasLink(this.file)
+        - file.folder == "10-Journal/10-10-Events"
+    sort:
+      - property: file.name
+        direction: ASC

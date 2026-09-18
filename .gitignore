@@ -1,0 +1,51 @@
+# ─────────────────────────────────────────────────────────────
+# Vault .gitignore
+#
+# Principle: git tracks TEXT (notes, configs, scripts).
+# Binaries (PDFs, images) stay in Google Drive and are captured
+# by the periodic zip snapshots — see 90-System/scripts/vault_snapshot.sh
+# ─────────────────────────────────────────────────────────────
+
+# ── OS / Python cruft ──
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ── Obsidian: keep settings, drop volatile state and vendored plugin code ──
+# workspace.json is tracked ONCE as the seed layout (sidebars, ribbon, calendar
+# pane). Obsidian rewrites it on every pane move; after your first open, stop
+# git from seeing that churn with:
+#   git update-index --skip-worktree .obsidian/workspace.json
+.obsidian/workspace-mobile.json
+# Plugin code is redownloadable from the community store, so only settings
+# (data.json) are tracked. manifest.json is deliberately NOT tracked: a folder
+# holding a manifest but no main.js makes Obsidian think the plugin is installed
+# and refuse to reinstall it. Without the manifest, the community browser offers
+# Install and writes the code in next to the existing settings.
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/styles.css
+.obsidian/plugins/*/manifest.json
+.obsidian/themes/
+.trash/
+
+# ── Binaries: Drive + zip snapshots, not git ──
+90-System/attachments/*
+90-System/images/*
+!90-System/attachments/README.md
+!90-System/images/README.md
+
+# ── Plugin state that holds credentials or per-account URLs ──
+# Granola stores OAuth tokens in its data.json; Tasknotes stores your private
+# calendar ICS URL. Keep both out of any repo that leaves your machine. The
+# scrubbed data.example.json files ARE tracked — copy them into place on setup.
+.obsidian/plugins/granola-meetings-simple-sync/data.json
+.obsidian/plugins/tasknotes/data.json
+
+# ── Claude Code: track shared config, ignore machine-local state ──
+.claude/settings.local.json
+
+# ── Scratch / external tool state ──
+.codex-google-docs/
+outputs/

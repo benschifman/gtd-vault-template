@@ -1,0 +1,11 @@
+filters:
+  and:
+    - note["type"] == "workflow" || note["type"] == "tasknotes-workflow"
+    - file.inFolder("90-System/Workflows")
+views:
+  - type: tasknotesWorkflows
+    name: Workflows
+    order:
+      - file.name
+      - note["enabled"]
+      - note["description"]

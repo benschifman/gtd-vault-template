@@ -1,0 +1,14 @@
+{
+  "folderPath": "00-Inbox/granola",
+  "filenamePattern": "{date} - {title}",
+  "templatePath": "90-System/templates/granola-sync.md",
+  "syncFrequency": "15m",
+  "showRibbonIcon": true,
+  "skipExistingNotes": true,
+  "matchAttendeesByEmail": true,
+  "excludeSelfFromAttendees": true,
+  "syncTimeRange": "last_30_days",
+  "syncTranscripts": false,
+  "onlyMyMeetings": true,
+  "accounts": []
+}

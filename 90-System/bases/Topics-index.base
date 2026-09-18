@@ -1,0 +1,11 @@
+views:
+  - type: table
+    name: Table
+    filters:
+      and:
+        - file.folder == "40-PKM/40-30-Topics"
+    order:
+      - file.name
+      - short_description
+    columnSize:
+      note.short_description: 457

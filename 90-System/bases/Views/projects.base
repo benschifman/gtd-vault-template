@@ -1,0 +1,37 @@
+filters:
+  and:
+    - category == "project"
+    - file.inFolder("20-GTD")
+    - status != "inactive"
+formulas:
+  next_action: file.backlinks.filter(value.asFile().properties.category == "next-action" && value.asFile().properties.status != "done")
+properties:
+  area:
+    displayName: Area
+  priority:
+    displayName: Priority
+  deadline:
+    displayName: Deadline
+  formula.next_actions:
+    displayName: Next Actions
+views:
+  - type: table
+    name: Active Projects
+    filters:
+      and:
+        - status != "someday-maybe-inactive"
+        - status != "someday"
+        - '!status.contains("complete")'
+    order:
+      - file.name
+      - formula.next_action
+      - status
+      - priority
+    sort:
+      - property: priority
+        direction: ASC
+    columnSize:
+      file.name: 210
+      formula.next_action: 434
+      note.status: 80
+      note.priority: 60

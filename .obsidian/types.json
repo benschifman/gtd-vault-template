@@ -1,0 +1,15 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "correspondents": "multitext",
+    "organizations_current": "multitext",
+    "created": "text",
+    "related_topics": "multitext",
+    "author": "multitext",
+    "topics": "multitext",
+    "organization": "multitext",
+    "prior_organizations": "multitext"
+  }
+}

@@ -1,0 +1,54 @@
+/* dashboard-columns.css
+   Single-column, stacked dashboard layout (Projects above Tasks above
+   Calendar). Applies only to notes carrying `cssclasses: [dashboard]` in
+   their frontmatter (see Dashboard.md). Works in Reading view and Live
+   Preview.
+
+   Note the two DOM shapes: Reading view wraps each callout in a plain
+   `.el-div`, Live Preview wraps it in `.cm-embed-block.cm-callout`. */
+
+/* ---- wider canvas: the dashboard ignores the readable-line-length cap ---- */
+.dashboard.markdown-preview-view .markdown-preview-sizer,
+.dashboard .cm-contentContainer .cm-content {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+/* ---- stack everything, top to bottom, in source order ---- */
+.dashboard.markdown-preview-view .markdown-preview-sizer,
+.dashboard .cm-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Live Preview keeps the blank source lines between callouts as .cm-line
+   nodes holding a lone <br>. Left alone each claims its own row. */
+.dashboard .cm-content > .cm-line:empty,
+.dashboard .cm-content > .cm-line:has(> br:only-child) {
+  display: none;
+}
+
+/* The frontmatter here only carries the cssclass — no need to show it. */
+.dashboard .metadata-container,
+.dashboard .mod-frontmatter {
+  display: none;
+}
+
+/* ---- keep each panel scannable: cap height, scroll inside ---- */
+.dashboard .callout[data-callout="abstract"] .callout-content,
+.dashboard .callout[data-callout="todo"] .callout-content {
+  max-height: 24rem;
+  overflow: auto;
+}
+
+.dashboard .callout[data-callout="calendar"] .callout-content {
+  max-height: 34rem;
+  overflow: auto;
+}
+
+/* ---- denser type inside the panels ---- */
+.dashboard .callout .bases-table-container,
+.dashboard .callout .tasknotes-plugin {
+  font-size: 0.85em;
+}

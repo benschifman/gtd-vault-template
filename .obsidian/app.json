@@ -1,0 +1,15 @@
+{
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "90-System/attachments",
+  "promptDelete": false,
+  "showUnsupportedFiles": true,
+  "readableLineLength": false,
+  "showLineNumber": false,
+  "pdfExportSettings": {
+    "pageSize": "Tabloid",
+    "landscape": false,
+    "margin": "1",
+    "downscalePercent": 58
+  },
+  "showInlineTitle": false
+}

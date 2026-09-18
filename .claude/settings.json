@@ -1,0 +1,18 @@
+{
+  "enabledPlugins": {
+    "obsidian@obsidian-skills": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Bash(python3 *)",
+      "Bash(/Library/Frameworks/Python.framework/Versions/3.13/bin/marker_single *)",
+      "Bash(rm -rf /tmp/marker_out*)",
+      "Read(**)",
+      "Write(**)",
+      "Edit(**)"
+    ],
+    "additionalDirectories": ["/tmp"]
+  }
+}

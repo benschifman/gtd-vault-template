@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.inFolder("30-CRM/30-10-People")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - organization
+      - role
+      - email
+      - phone
+      - photo
+      - status
+  - type: cards
+    name: Cards
+    image: note.photo
+  - type: table
+    name: LinksToNote
+    filters:
+      and:
+        - file.hasLink(this.file.name)
